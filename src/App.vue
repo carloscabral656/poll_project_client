@@ -1,9 +1,5 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <QuestionsView />
 </template>
 
 <style>
@@ -28,3 +24,15 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import QuestionsView from './views/QuestionsView.vue';
+
+export default defineComponent({
+    name: "App",
+    components: {
+      QuestionsView
+    }
+});
+</script>
