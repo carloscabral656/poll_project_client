@@ -2,7 +2,7 @@
     <div>
         <!-- Enunciado -->
         <div>
-            {{ question?.id }}
+            {{ question?.statement }}
         </div>
         
         <!-- Alternatives -->
@@ -12,7 +12,9 @@
 
         <!-- Coment -->
         <div v-if="question?.hasComent">
-            {{ question?.comment }}
+            <textarea cols="50" lines="10">
+
+            </textarea>
         </div>
     </div>
 </template>

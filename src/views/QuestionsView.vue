@@ -1,6 +1,6 @@
 <template>
     <main class="questions">
-        <QuestionComponent v-for="(index, question) in questions" :key="index" :question="question"/>
+        <QuestionComponent v-for="(question, index) in questions" :key="index" :question="question"/>
     </main>
 </template>
 
@@ -13,6 +13,7 @@
 import { defineComponent } from 'vue';
 import QuestionComponent  from '@/components/QuestionComponent.vue'
 import IQuestion from '@/interfaces/IQuestion';
+import { useStore } from 'vuex';
 
 export default defineComponent({
     name: "QuestionsView",
@@ -21,7 +22,8 @@ export default defineComponent({
     },
     computed: {
         questions() : Array<IQuestion> {
-            return this.$store.state.questions
+            const store = useStore()
+            return store.state.questions
         }
     },
     data(){
