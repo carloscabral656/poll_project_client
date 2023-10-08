@@ -1,6 +1,18 @@
 <template>
-  <QuestionsView />
+  <PollsView />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import PollsView from './views/PollsView.vue';
+
+export default defineComponent({
+    name: "App",
+    components: {
+      PollsView
+    }
+});
+</script>
 
 <style>
 #app {
@@ -24,15 +36,3 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-import QuestionsView from './views/QuestionsView.vue';
-
-export default defineComponent({
-    name: "App",
-    components: {
-      QuestionsView
-    }
-});
-</script>

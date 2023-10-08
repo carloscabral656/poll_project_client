@@ -27,6 +27,7 @@
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
 import IQuestion from '../interfaces/IQuestion'
+import { useStore } from 'vuex';
 
 export default defineComponent({
     name: "QuestionComponent",
@@ -38,9 +39,17 @@ export default defineComponent({
             type: Object as PropType<IQuestion>,
         }
     },
+    created(){
+        return;
+    },
     data(){
         return {
 
+        }
+    },
+    setup(){
+        return {
+            store: useStore()
         }
     }
 });
