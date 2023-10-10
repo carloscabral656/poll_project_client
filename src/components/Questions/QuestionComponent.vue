@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import IQuestion from '../interfaces/IQuestion'
+import IQuestion from '@/interfaces/IQuestion'
 import { useStore } from 'vuex';
 
 export default defineComponent({

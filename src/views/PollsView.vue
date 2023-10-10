@@ -1,5 +1,8 @@
 <template>
-    <PollComponent v-for="(poll, index) in polls" :key="index" :poll="poll" />
+    <PollComponent 
+    v-for="(poll, index) in polls" 
+    :key="index" 
+    :poll="poll" />
 </template>
 
 
@@ -9,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import PollComponent from '@/components/PollComponent.vue';
+import PollComponent from '@/components/Polls/PollComponent.vue';
 import { useStore } from 'vuex';
 
 export default defineComponent({
