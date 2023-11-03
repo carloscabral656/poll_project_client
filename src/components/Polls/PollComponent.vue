@@ -11,7 +11,7 @@
         </template>
         <template #footer>
             <Button label="Answer" severity="success" />
-            <Button label="Skip" severity="secondary" style="margin-left: 0.5em" />
+            <Button label="Skip" severity="secondary"/>
         </template>
     </Card>
 </template>
