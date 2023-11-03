@@ -1,5 +1,5 @@
 <template>
-    <Card style="width: 25em">
+    <Card style="width: 25em" v-if="poll">
         <template #header>
             <img alt="user header" src="" />
         </template>
