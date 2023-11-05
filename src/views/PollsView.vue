@@ -1,13 +1,16 @@
 <template>
-  <h2>List of Polls</h2>
-  <GridComponent :data="polls || []" :totalItemInLine=4 />
+  <GridComponent 
+    :data="polls" 
+    :totalItemsInLine=4 
+    :component="PollComponent"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import GridComponent from '@/components/Layout/GridComponent.vue'
-
+import PollComponent from '@/components/Polls/PollComponent.vue';
 
 export default defineComponent({
     name: "PollsView",
@@ -16,7 +19,7 @@ export default defineComponent({
     },
     data(){
       return {
-        
+        PollComponent: PollComponent
       }
     },
     computed:{

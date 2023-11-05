@@ -1,17 +1,17 @@
 <template>
-    <Card style="width: 25em" v-if="poll">
+    <Card style="width: 25em" v-if="data">
         <template #header>
             <img alt="user header" src="" />
         </template>
-        <template #title> {{poll?.title}} </template>
+        <template #title> {{data?.title}} </template>
         <template #content>
             <p>
-                {{ poll?.description || 'N/D' }}
+                {{ data?.description || 'N/D' }}
             </p>
         </template>
         <template #footer>
             <Button label="Answer" severity="success" />
-            <Button label="Skip" severity="secondary"/>
+            <Button label="Skip" severity="secondary" />
         </template>
     </Card>
 </template>
@@ -32,7 +32,7 @@ import Button from 'primevue/button';
 export default defineComponent({
     name: "PollComponent",
     props: {
-        poll: {
+        data: {
             type: Object as PropType<IPoll>,
         }
     },
