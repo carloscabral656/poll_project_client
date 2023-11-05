@@ -1,4 +1,5 @@
 <template>
+  <h1>List of Polls</h1>
   <GridComponent 
     :data="polls" 
     :totalItemsInLine=4 

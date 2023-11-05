@@ -10,7 +10,7 @@
             </p>
         </template>
         <template #footer>
-            <Button label="Answer" severity="success" />
+            <Button label="Answer" severity="success" @click="choosePoll"/>
             <Button label="Skip" severity="secondary" />
         </template>
     </Card>
@@ -26,6 +26,7 @@ import { PropType, defineComponent } from 'vue';
 import IPoll from '@/interfaces/IPoll';
 import Card from 'primevue/card';
 import Button from 'primevue/button';
+import { useStore } from 'vuex';
 
 
 
@@ -36,9 +37,20 @@ export default defineComponent({
             type: Object as PropType<IPoll>,
         }
     },
+    methods: {
+        choosePoll(){
+            this.store.dispatch("choosePoll", this.data)
+        } 
+    },
     components: {
         Card,
         Button
+    },
+    setup(){
+        const store = useStore()
+        return {
+            store
+        }
     }
 });
 </script>
