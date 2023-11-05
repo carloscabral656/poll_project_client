@@ -30,8 +30,20 @@ export default createStore({
    * 
   */
   getters: {
+    /** 
+     * 
+     * 
+    */
     getAllPolls(state) : Array<Poll>{
       return state.polls
+    },
+
+    /** 
+     * 
+     * 
+    */
+    choosenPoll(state) : Poll{
+      return state.choosenPoll
     }
   },
 

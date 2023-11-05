@@ -38,8 +38,9 @@ export default defineComponent({
         }
     },
     methods: {
-        choosePoll(){
+        choosePoll() {
             this.store.dispatch("choosePoll", this.data)
+            this.$router.push('/questions')
         } 
     },
     components: {

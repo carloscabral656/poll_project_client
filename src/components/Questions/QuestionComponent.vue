@@ -1,22 +1,21 @@
 <template>
-    <div>
-        <!-- Enunciado -->
-        <div>
-            {{ question?.statement }}
-        </div>
+    <CardComponent>
+
+        <!--  -->
+        <template #title> Question {{ data?.orderQuestion }}</template>
         
-        <!-- Alternatives -->
-        <div v-for="alternative in question?.alternatives" :key="alternative.id">
-           {{ alternative.description }} 
-        </div>
-
-        <!-- Coment -->
-        <div v-if="question?.hasComent">
-            <textarea cols="50" lines="10">
-
-            </textarea>
-        </div>
-    </div>
+        <!-- Question's Statement -->
+        <template #content>
+            <p class="m-0">
+                {{ data?.statement }}
+            </p>
+            <!-- Alternatives -->
+            <AlternativeComponent :data="data?.alternatives"/>
+            
+            <!-- Comment -->
+            <TextAreaComponent v-if="data?.hasComment"/>
+        </template>
+    </CardComponent>
 </template>
 
 
@@ -26,26 +25,30 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import IQuestion from '@/interfaces/IQuestion'
 import { useStore } from 'vuex';
+import Question from '@/entities/Question';
+import AlternativeComponent from '@/components/Alternatives/AlternativeComponent.vue';
 
 export default defineComponent({
     name: "QuestionComponent",
+    data(){
+        return {
+            // v-model
+        }
+    },
     computed: {
         
     },
+    components: {
+        AlternativeComponent
+    },
     props: {
-        question: {
-            type: Object as PropType<IQuestion>,
+        data: {
+            type: Object as PropType<Question>,
         }
     },
     created(){
         return;
-    },
-    data(){
-        return {
-
-        }
     },
     setup(){
         return {
