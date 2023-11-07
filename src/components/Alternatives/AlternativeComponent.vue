@@ -2,13 +2,13 @@
     <span 
         v-for="alternative in data" 
         :key="alternative.value"
-        class="m-0"
         >
         <ButtonComponent 
             :label="alternative.description"
             rounded 
             severity="success" 
-            raised 
+            raised
+            @click="chooseAnswer(alternative)" 
         />
     </span>
 </template>
@@ -26,7 +26,13 @@ export default defineComponent({
     name: "AlternativeComponent",
     data() {
         return {
-
+            choosenAnswer: {} as Alternative
+        }
+    },
+    methods: {
+        chooseAnswer(alternative: Alternative){
+            this.choosenAnswer = alternative
+            this.$emit('sendAnswer', this.choosenAnswer)
         }
     },
     props: {

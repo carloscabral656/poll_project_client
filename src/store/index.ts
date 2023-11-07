@@ -80,6 +80,7 @@ export default createStore({
             })
 
             const computedQuestion = new Question(
+              question.id,
               question.order_question,
               question.statement,
               question.has_comment,
