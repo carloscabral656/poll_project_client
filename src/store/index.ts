@@ -4,6 +4,7 @@ import ApiResponse from '@/entities/ApiResponse';
 import Poll from '@/entities/Poll';
 import Question from '@/entities/Question';
 import Alternative from '@/entities/Alternative';
+import Answer from '@/entities/Answer';
 
 export default createStore({
 
@@ -20,7 +21,10 @@ export default createStore({
     questions: [] as Array<Question>,
 
     // Specific Poll from all Polls in list
-    choosenPoll: {} as Poll
+    choosenPoll: {} as Poll,
+
+    // All answer from the Choosen Poll
+    answers: [] as Array<Answer>
 
   },
 
