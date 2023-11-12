@@ -23,7 +23,7 @@ export default createStore({
     // Specific Poll from all Polls in list
     choosenPoll: {} as Poll,
 
-    // All answer from the Choosen Poll
+    // All answers from the Choosen Poll
     answers: [] as Array<Answer>
 
   },

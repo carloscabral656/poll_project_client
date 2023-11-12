@@ -47,7 +47,7 @@ export default defineComponent({
         Card,
         Button
     },
-    setup(){
+    setup() {
         const store = useStore()
         return {
             store

@@ -4,6 +4,7 @@
         :totalItemsInLine=1
         :component="QuestionComponent"
     />
+    <ButtonComponent label="Save Answers" severity="success" />
 </template>
 
 <style scoped>
@@ -18,7 +19,7 @@ import { useStore } from 'vuex';
 
 export default defineComponent({
     name: "QuestionsView",
-    data(){
+    data() {
         return {
             QuestionComponent: QuestionComponent
         }

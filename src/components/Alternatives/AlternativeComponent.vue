@@ -6,7 +6,11 @@
         <ButtonComponent 
             :label="alternative.description"
             rounded 
-            severity="success" 
+            :severity="
+                (alternative.value === choosenAnswer.value)
+                ? 'info'
+                : 'success'
+            " 
             raised
             @click="chooseAnswer(alternative)" 
         />

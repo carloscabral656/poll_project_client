@@ -18,18 +18,18 @@ export default defineComponent({
     components: {
       GridComponent
     },
-    data(){
+    data() {
       return {
         PollComponent: PollComponent
       }
     },
-    computed:{
+    computed: {
       polls(){
         let store = useStore()
         return store.state.polls 
       }
     },
-    created(){
+    created() {
       let store = useStore()
       store.dispatch('loadPolls')
     }
