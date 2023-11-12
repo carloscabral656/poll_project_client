@@ -33,19 +33,30 @@ import { useStore } from 'vuex';
 import Question from '@/entities/Question';
 import Alternative from '@/entities/Alternative';
 import AlternativeComponent from '@/components/Alternatives/AlternativeComponent.vue';
+import Answer from '@/entities/Answer';
 
 export default defineComponent({
     name: "QuestionComponent",
     data(){
         return {
-            idQuestion: this.data?.id as number,
-            answers: [] as Array<Alternative>,
+            idQuestion: 0 as number,
+            choosenAlternative: [] as Array<Alternative>,
             comment: "" as string
         }
     },
     methods: {
-        addAnswer(answer: Alternative){
-            this.answers.push(answer)
+        addAnswer(alternative: Alternative){
+
+            //Create answer obj
+            let answer : Answer = new Answer(this.data!.id)
+
+            // Adding choosen alternatives
+            answer.setChoosenAlternative(alternative)
+            answer.setComment(this.comment)
+
+            // 
+            this.store.dispatch('addAnswer', answer)
+
         }
     },
     computed: {

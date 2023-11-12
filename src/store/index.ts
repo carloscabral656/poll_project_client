@@ -119,8 +119,24 @@ export default createStore({
     */
     choosePoll(state, poll : Poll){
       state.choosenPoll = poll;
-    }
+    },
 
+
+     /**
+     * Method responsable for adding all the answer.
+     * 
+     * 
+    */
+    addAnswer(state, answer: Answer){
+      const sameAnswer  = !state.answers.some(
+        (a) => 
+        (a.id === answer.id) &&
+        (a.choosenAlternativeValues?.some((ca) => ca.value === answer.choosenAlternativeValues.va))
+      ) 
+      if(!sameAnswer){
+        state.answers.push(answer)
+      }
+    }
   },
 
 
@@ -128,7 +144,7 @@ export default createStore({
   actions: {
 
     /**
-     * Method responsable 
+     * Method responsable for fetching all polls inserted in API.
      * 
      * 
     */
@@ -140,8 +156,22 @@ export default createStore({
       })
     },
 
+    /**
+     * Method responsable for.
+     * 
+     * 
+    */
     choosePoll({commit}, poll: Poll){
       commit("choosePoll", poll)
+    },
+
+    /**
+     * Method responsable for adding all the answer.
+     * 
+     * 
+    */
+    addAnswer({commit}, answer: Answer){
+      commit("addAnswer", answer)
     }
   },
 
