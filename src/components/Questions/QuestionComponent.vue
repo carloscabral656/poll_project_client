@@ -46,7 +46,7 @@ export default defineComponent({
     },
     methods: {
         addAnswer(alternative: Alternative){
-
+            
             //Create answer obj
             let answer : Answer = new Answer(this.data!.id)
 

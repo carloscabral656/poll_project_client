@@ -123,17 +123,18 @@ export default createStore({
 
 
      /**
-     * Method responsable for adding all the answer.
+     * Method responsable for adding all the answers from a specific question.
      * 
      * 
     */
-    addAnswer(state, answer: Answer){
-      const sameAnswer  = !state.answers.some(
-        (a) => 
-        (a.id === answer.id) &&
-        (a.choosenAlternativeValues?.some((ca) => ca.value === answer.choosenAlternativeValues.va))
-      ) 
-      if(!sameAnswer){
+    addAnswer(state, answer: Answer) {
+      const index : number  = state.answers.findIndex(
+        (a) => (a.id == answer.id) 
+      )
+      // This question has alredy received an answer?
+      if(index != -1){
+        state.answers[index].setChoosenAlternatives(answer.choosenAlternativeValues)
+      }else{
         state.answers.push(answer)
       }
     }

@@ -25,6 +25,10 @@ export default class Answer {
         this.choosenAlternative!.push(alternative)
     }
 
+    setChoosenAlternatives(choosenAlternatives: Array<Alternative> | null){
+        this.choosenAlternative = choosenAlternatives
+    }
+
     setComment(comment: string){
         this.comment = comment
     }
