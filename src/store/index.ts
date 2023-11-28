@@ -48,6 +48,10 @@ export default createStore({
     */
     choosenPoll(state) : Poll{
       return state.choosenPoll
+    },
+
+    getAnswers(state) : Array<Answer>{
+      return state.answers
     }
   },
 
@@ -121,8 +125,7 @@ export default createStore({
       state.choosenPoll = poll;
     },
 
-
-     /**
+    /**
      * Method responsable for adding all the answers from a specific question.
      * 
      * 
@@ -137,7 +140,8 @@ export default createStore({
       }else{
         state.answers.push(answer)
       }
-    }
+    },
+
   },
 
 
@@ -173,6 +177,13 @@ export default createStore({
     */
     addAnswer({commit}, answer: Answer){
       commit("addAnswer", answer)
+    },
+
+    /**
+     * 
+    */
+    sendAnswers(){
+      return null
     }
   },
 

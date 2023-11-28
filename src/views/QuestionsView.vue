@@ -4,7 +4,11 @@
         :totalItemsInLine=1
         :component="QuestionComponent"
     />
-    <ButtonComponent label="Save Answers" severity="success" />
+    <ButtonComponent 
+    label="Save Answers" 
+    severity="success"
+    @click="saveAnswers" 
+    />
 </template>
 
 <style scoped>
@@ -22,6 +26,12 @@ export default defineComponent({
     data() {
         return {
             QuestionComponent: QuestionComponent
+        }
+    },
+    methods: {
+        saveAnswers(){
+            console.log(JSON.stringify(this.store.getters.getAnswers))
+            //this.store.dispatch('sendAnswers')
         }
     },
     components: {
