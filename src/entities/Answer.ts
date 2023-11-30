@@ -33,4 +33,8 @@ export default class Answer {
         this.comment = comment
     }
 
+    getComment() : string | null{
+        return this.comment;
+    }
+
 }
