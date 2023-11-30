@@ -20,6 +20,7 @@ import QuestionComponent  from '@/components/Questions/QuestionComponent.vue'
 import GridComponent  from '@/components/Layout/GridComponent.vue'
 import Poll from '@/entities/Poll';
 import { useStore } from 'vuex';
+import { AnswerAdapter } from '@/adapters/AnswersAdapter';
 
 export default defineComponent({
     name: "QuestionsView",
@@ -30,8 +31,21 @@ export default defineComponent({
     },
     methods: {
         saveAnswers(){
-            console.log(JSON.stringify(this.store.getters.getAnswers))
-            //this.store.dispatch('sendAnswers')
+            const answers  = this.store.getters.getAnswers;
+            const answersAdpter = new AnswerAdapter(answers, 1).adapt();
+           // Convert Map entries to an array of key-value pairs
+            let keyValueArray = Array.from(answersAdpter.entries());
+
+            // Transform array into an object without [] around keys
+            let keyValueObject: { [key: string]: string } = {};
+            keyValueArray.forEach(([key, value]) => {
+                keyValueObject[key] = value;
+            });
+
+            // Stringify the object
+            let jsonString = JSON.stringify(keyValueObject);
+
+            console.log(jsonString) 
         }
     },
     components: {
