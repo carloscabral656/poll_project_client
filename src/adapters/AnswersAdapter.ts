@@ -24,7 +24,7 @@ export class AnswerAdapter {
      * 
      * 
     */
-    adapt(){
+    adapt() : Map<string, any>{
         const answersAdapt = new Map();
         answersAdapt.set('id_user', this.idUser);
         answersAdapt.set('date_answer', this.dateAnswer);
@@ -42,5 +42,6 @@ export class AnswerAdapter {
             answersAux.push(answerAux)
         });
         answersAdapt.set('answers', answersAux);
+        return answersAdapt
     }
 }
